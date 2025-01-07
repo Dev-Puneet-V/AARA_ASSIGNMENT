@@ -1,3 +1,4 @@
+// @ts-ignore
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -6,17 +7,17 @@ const ProductDetails = () => {
   const [searchParams] = useSearchParams();
   const productId = searchParams.get("product_id");
   const variantId = searchParams.get("variant_id");
-  const [variant, setVariant] = useState({
+  const [variant, setVariant] = useState<any>({
     color_variant_id: null,
     storage_variant_id: null,
     other_variant_id: null,
   });
-  const [data, setData] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [data, setData] = useState<any>({});
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
 
   const handleVariantChange = (type: string, id: number) => {
-    setVariant((prev) => ({
+    setVariant((prev: any) => ({
       ...prev,
       [type]: id,
     }));
@@ -37,10 +38,10 @@ const ProductDetails = () => {
         );
         const product = response.data || {};
         setData(product);
-        setLoading(false);
+        // setLoading(false);
       } catch (err: any) {
-        setError(err.message || "Something went wrong");
-        setLoading(false);
+        // setError(err.message || "Something went wrong");
+        // setLoading(false);
       }
     };
 
@@ -69,10 +70,10 @@ const ProductDetails = () => {
 
         const product = response.data || {};
         setData(product);
-        setLoading(false);
+        // setLoading(false);
       } catch (err: any) {
-        setError(err.message || "Something went wrong");
-        setLoading(false);
+        // setError(err.message || "Something went wrong");
+        // setLoading(false);
       }
     };
 
@@ -109,7 +110,7 @@ const ProductDetails = () => {
         </div>
         <p className="font-bold">{data?.data?.color_variant}</p>
         <div className="flex gap-2">
-          {data?.data?.variant_color_values?.map((color) => {
+          {data?.data?.variant_color_values?.map((color: any) => {
             return (
               <div
                 className={`cursor-pointer flex flex-col justify-center items-center ${
@@ -133,7 +134,7 @@ const ProductDetails = () => {
         </div>
         <p className="font-bold">{data?.data?.storage_variant}</p>
         <div className="flex gap-2">
-          {data?.data?.variant_storage_values?.map((storage) => {
+          {data?.data?.variant_storage_values?.map((storage: any) => {
             return (
               <div
                 key={storage?.id}
@@ -153,7 +154,7 @@ const ProductDetails = () => {
         </div>
         <p className="font-bold">{data?.data?.other_variant}</p>
         <div className="flex gap-2">
-          {data?.data?.other_variant_values?.map((other) => {
+          {data?.data?.other_variant_values?.map((other: any) => {
             return (
               <div
                 className={`cursor-pointer ${

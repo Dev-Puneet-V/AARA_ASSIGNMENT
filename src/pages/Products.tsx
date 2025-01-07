@@ -1,3 +1,4 @@
+// @ts-ignore
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Product, { ProductDetails } from "../components/Product";

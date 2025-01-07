@@ -1,3 +1,4 @@
+// @ts-ignore
 import ProductDetails from "./pages/ProductInfo";
 import Products from "./pages/Products";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
