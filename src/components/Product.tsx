@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 export interface ProductDetails {
@@ -59,7 +58,7 @@ const Product = (props: ProductDetails) => {
     navigate(
       `/info?product_id=${id}&variant_id=${variant_id}&color_variant_id=${color_variant_id}&storage_variant_id=${storage_variant_id}&other_variant_id=${other_variant_id}`
     );
-    };
+  };
   return (
     <div className="cursor-pointer relative rounded p-[5px] flex flex-col shadow-md shadow-grey-500/50 w-[250px] h-[340px]">
       <img
