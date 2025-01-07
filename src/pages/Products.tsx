@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Product, { ProductDetails } from "../components/Product";
 import { IoIosClose } from "react-icons/io";
+
 interface DataToFilter {
   mainCategory: string[];
   subCategory: string[];

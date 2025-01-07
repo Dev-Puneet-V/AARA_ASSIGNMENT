@@ -7,10 +7,13 @@ const ProductDetails = () => {
   const [searchParams] = useSearchParams();
   const productId = searchParams.get("product_id");
   const variantId = searchParams.get("variant_id");
+  const colorVariantId = searchParams.get("color_variant_id");
+  const storageVariantId = searchParams.get("storage_variant_id");
+  const otherVariantId = searchParams.get("other_variant_id");
   const [variant, setVariant] = useState<any>({
-    color_variant_id: null,
-    storage_variant_id: null,
-    other_variant_id: null,
+    color_variant_id: Number(colorVariantId),
+    storage_variant_id: Number(storageVariantId),
+    other_variant_id: Number(otherVariantId),
   });
   const [data, setData] = useState<any>({});
   // const [loading, setLoading] = useState(true);
@@ -24,6 +27,7 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
+    console.log(variant);
     const fetchVariant = async () => {
       try {
         const token = "7c2b8693d001c79d4b5ed6ebc387ad6b862989dfjhjjhj";
@@ -46,8 +50,8 @@ const ProductDetails = () => {
     };
 
     if (
-      variant?.color_variant_id &&
-      variant?.other_variant_id &&
+      variant?.color_variant_id ||
+      variant?.other_variant_id ||
       variant?.storage_variant_id
     ) {
       fetchVariant();
